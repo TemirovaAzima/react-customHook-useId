@@ -1,9 +1,9 @@
-import {CounterEffect} from './CounterEffect.jsx'
+import FetchDataEffect from './components/FetchDataEffect.jsx'
 
 const App = () => {
     return (
         <div>
-            <CounterEffect/>
+            <FetchDataEffect/>
         </div>
     )
 }
