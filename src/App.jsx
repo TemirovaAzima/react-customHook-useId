@@ -1,17 +1,17 @@
-import {useId} from 'react'
-
-const items = ['apple', 'banana', 'mango']
+import {useId, useState} from 'react'
 export const App = ()=>{
+    const stableId = useState(useId())[0];
+    const secondStableId = useState(useId())[0];
+    const [count, setCount] = useState(0);
+    const id = useId();
 
     return(
-        <ul>
-            {items.map(item=>{
-                const id = useId();  // in every re-render will create a new id
-                console.log(id)
-                return(
-                    <li key={Math.random()} id={id}>{item}</li>
-                )
-            })}
-        </ul>
+        <div>
+            <h1>My stableId : {stableId} </h1>
+            <h1>My stableId : {secondStableId}</h1>
+            <h1>{id}</h1>
+            <h1>{count}</h1>
+            <button onClick={()=>setCount(count+1)}>+</button>
+        </div>
     )
 }
