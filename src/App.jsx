@@ -1,30 +1,13 @@
-import {useCounter} from "./useCounter.js";
-import {useState} from "react";
-
-const App = () => {
-    const {count, increment, decrement, incrementByAmount, decrementByAmount,reset} = useCounter();
-    const [inputValue, setInputValue] = useState(0);
+import {useEffect} from "react";
+export const App = () => {
+    useEffect(()=>{
+        console.log('useffect works')
+    });
     return (
         <div>
-            <h1>{count}</h1>
-            <button onClick={increment}>+</button>
-            <button onClick={decrement}>-</button>
-            <input
-                type="number"
-                value={inputValue}
-                placeholder='enter number'
-                onChange={(e) => setInputValue(e.target.value)}/>
-            <button onClick={() => {
-                incrementByAmount(Number(inputValue));
-                 setInputValue(0)}}
-                >Add</button>
-            <button onClick={() => {
-                decrementByAmount(Number(inputValue))
-                setInputValue(0)}}
-               >Subtract</button>
-            <button onClick={reset}>Reset</button>
+            <h1>BasicEffect</h1>
         </div>
     )
 }
-export default App
+
 
