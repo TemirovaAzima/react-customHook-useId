@@ -10,14 +10,28 @@ const FetchDataEffect = ()=>{
             setData(data);
         }
         fetchData();
-    },[])
+    },[]);
+    const changeTitle = ()=>{
+        setData(
+            data.map((data)=> (data.id===3 ? {...data, title :"Hello React"} : data))
+        )
+    };
+    const removeTitle = ()=>{
+        setData(
+            data.filter((data)=>data.id!==3)
+        )
+    }
 
     return(
         <div>
             <h1>
                 First Post Title:
             </h1>
-            {data.length>0 ? <h1>{data[0].title}</h1> : <p>Loading...</p>}
+            {data.length>0 ? <h1>{data.map((data)=>(
+                <h2 key={data.id}>{data.title}</h2>
+            ))}</h1> : <p>Loading...</p>}
+            <button onClick={changeTitle}>Change Title</button>
+            <button onClick={removeTitle}>Remove Title</button>
         </div>
 
     )
