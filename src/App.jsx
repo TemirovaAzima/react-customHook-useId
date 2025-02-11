@@ -1,15 +1,15 @@
-import {useId} from "react";
+import {useId} from 'react'
 
-const fruits = ['apple', 'banana', 'mango']
-export const App = () => {
-    const listId= useId()
+const items = ['apple', 'banana', 'mango']
+export const App = ()=>{
+
     return(
         <ul>
-            {fruits.map((fruit, index)=>{
-                const id = `${listId}-${index}`
+            {items.map(item=>{
+                const id = useId();  // in every re-render will create a new id
                 console.log(id)
                 return(
-                    <li key={Math.random()} id={id}>{fruit}</li>
+                    <li key={Math.random()} id={id}>{item}</li>
                 )
             })}
         </ul>
