@@ -1,13 +1,13 @@
-import {useEffect} from "react";
-export const App = () => {
-    useEffect(()=>{
-        console.log('useffect works')
-    });
+import {CounterEffect} from './CounterEffect.jsx'
+
+const App = () => {
     return (
         <div>
-            <h1>BasicEffect</h1>
+            <CounterEffect/>
         </div>
     )
 }
+export default App
+
 
 
